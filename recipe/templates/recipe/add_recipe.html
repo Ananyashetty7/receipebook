@@ -1,0 +1,18 @@
+{% extends 'recipe/base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'recipe/add_recipe.css' %}">
+<div class="login-container">
+    <div class="form-card">
+        <h1>Add a New Recipe</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="input-group">
+                {{ form.as_p }}
+            </div>
+            <button type="submit" class="login-btn">Add Recipe</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

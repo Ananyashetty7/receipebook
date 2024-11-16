@@ -1,0 +1,22 @@
+{% extends 'recipe/base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'recipe/recipe_detail.css' %}">
+<div class="recipe-detail-container">
+    <div class="form-card">
+        <h1>{{ recipe.name }}</h1>
+
+        {% if recipe.image %}
+            <img src="{{ recipe.image.url }}" alt="{{ recipe.name }}" class="recipe-image">
+        {% endif %}
+
+        <p><strong>Ingredients:</strong> {{ recipe.ingredients }}</p>
+        <p><strong>Steps:</strong> {{ recipe.steps }}</p>
+        
+        <a href="{% url 'home' %}" class="back-btn">Back to Recipes</a>
+    </div>
+</div>
+{% endblock %}
+
+

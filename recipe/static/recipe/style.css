@@ -1,0 +1,125 @@
+/* Define CSS Variables for Color Scheme */
+:root {
+    --color-background: #0f0f1a;         /* Dark Background */
+    --color-card-bg: #1a1a2e;            /* Darker Background for Cards */
+    --color-text-light: #ffffff;         /* White for Primary Text */
+    --color-text-muted: #f8f8f8;         /* Light Grey for Secondary Text */
+    --color-accent: #ff4081;             /* Vibrant Pink Accent */
+    --color-accent-hover: #e040fb;       /* Darker Pink on Hover */
+    --color-navbar-bg: #1a1a2e;          /* Navbar Background */
+    --color-navbar-text: #ffffff;        /* Navbar Text Color */
+}
+
+/* Global Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    transition: all 0.3s ease;
+}
+
+body {
+    
+    font-family: Arial, sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text-light);
+    line-height: 1.6;
+    padding: 0;
+    margin: 0;
+}
+
+/* Navbar Styling */
+.navbar {
+    display: block; /* Ensure it's not set to 'none' */
+    visibility: visible;
+    position: relative; /* Ensure it's positioned correctly */
+    background-color: var(--color-navbar-bg);
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 2px solid var(--color-accent);
+    
+}
+
+.navbar a {
+    margin: 0 15px;
+    color: var(--color-navbar-text);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: var(--color-accent);
+}
+
+/* Container Styling */
+.container {
+    padding: 20px;
+}
+
+/* Recipe Card Styling */
+.recipe-card {
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-accent);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.recipe-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+}
+
+/* Image Styling */
+.recipe-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Title Styling */
+.recipe-card h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5em;
+    color: var(--color-text-light);
+    margin: 15px 0;
+}
+
+/* Paragraph Styling */
+.recipe-card p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    color: var(--color-text-muted);
+    margin-bottom: 15px;
+}
+
+/* Button Styling */
+.recipe-card a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--color-accent);
+    color: var(--color-text-light);
+    text-decoration: none;
+    border-radius: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.recipe-card a:hover {
+    background-color: var(--color-accent-hover);
+    transform: scale(1.05);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .recipe-card {
+        max-width: 100%;
+    }
+}

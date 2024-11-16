@@ -1,0 +1,42 @@
+{% extends 'recipe/base.html' %}
+
+{% block content %}
+{% load static %}
+<h1>Recipe Book</h1>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="{% static 'recipe/recipe_layout.css' %}">
+
+
+
+<div class="search-container d-flex justify-content-end mt-3">
+    <form method="GET" action="" class="d-flex search-bar-form">
+        <input
+            type="text"
+            name="q"
+            class="form-control search-input me-2"
+            placeholder="Search recipes..."
+            value="{{ query|default:'' }}"
+            oninput="searchRecipes(this.value)"
+        />
+        <button class="btn btn-accent search-button" type="submit">Search</button>
+    </form>
+</div>
+
+
+
+<div id="recipe-list">
+    {% for recipe in recipes %}
+        <div class="recipe-card">
+            <h2>{{ recipe.name }}</h2>
+            {% if recipe.image %}
+                <img src="{{ recipe.image.url }}" alt="{{ recipe.name }}" class="recipe-image">
+            {% endif %}
+            <p><strong>Ingredients:</strong> {{ recipe.ingredients|truncatewords:10 }}</p>
+            <p><strong>Added by:</strong> {{ recipe.user.username }}</p>
+            <a href="{% url 'recipe_detail' recipe.id %}">View More</a>
+            <a href="{% url 'edit_recipe' recipe.id %}">Edit Recipe</a>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
